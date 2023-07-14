@@ -1,27 +1,22 @@
-import { useDispatch } from "react-redux";
-
-const deposit = value => {
-  return {
-    type: 'account/deposit',
-    payload: value,
-  };
-};
-
-const withdraw = value => {
-  return {
-    type: 'account/withdraw',
-    payload: value,
-  };
-};
+import { useDispatch } from 'react-redux';
+import { deposit, withdraw } from 'redux/accountSlice';
+import { Balance } from './Balance';
+import { useState } from 'react';
 
 export const Account = () => {
-    const dispatch = useDispatch()
-  
-    return (
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState(0);
+
+  return (
     <div>
-      <p>Balance: 0</p>
-      <button onClick={() => dispatch(deposit(10))}>Deposit</button>
-      <button onClick={() => dispatch(withdraw(5))}>Withdraw</button>
+      <Balance />
+      <input
+        type="number"
+        value={inputValue}
+        onChange={evt => setInputValue(Number(evt.target.value))}
+      />
+      <button onClick={() => dispatch(deposit(inputValue))}>Deposit</button>
+      <button onClick={() => dispatch(withdraw(inputValue))}>Withdraw</button>
     </div>
   );
 };

@@ -1,18 +1,16 @@
-import { Account } from "../components/Account";
+import { useSelector } from 'react-redux';
+import { Account } from './Account';
+import { LangSwitcher } from './LangSwitcher';
 
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101'
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };
+export const App = () => {
+  const lang = useSelector(state => state.locale.lang);
+  return (
+    <div>
+      <LangSwitcher />
+      <hr />
+      <div>Current lang: {lang} </div>
+      <hr />
+      <Account />
+    </div>
+  );
+};
