@@ -14,3 +14,6 @@ export const App = () => {
     </div>
   );
 };
+
+// Модуль7 урок1 2га частина
+// https://codesandbox.io/s/goit-react-textbook-lesson-13-redux-toolkit-react75-2q3sf2?file=/src/redux/tasksSlice.js 
